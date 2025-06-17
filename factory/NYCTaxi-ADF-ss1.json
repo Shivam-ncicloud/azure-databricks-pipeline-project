@@ -1,0 +1,9 @@
+{
+	"name": "NYCTaxi-ADF-ss1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2940e244-4f2d-4dcf-a697-11a9ff28361c",
+		"tenantId": "6edb49c1-bf72-4eea-8b3f-a7fd0a25b68c"
+	}
+}
