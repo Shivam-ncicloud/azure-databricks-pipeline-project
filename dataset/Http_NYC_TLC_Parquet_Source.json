@@ -1,0 +1,19 @@
+{
+	"name": "Http_NYC_TLC_Parquet_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Http_NYCTLC_Website",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "yellow_tripdata_2024-10.parquet"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"name": "ADLS_Bronze_Sink",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_NYCTaxiData",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "yellow_tripdata_2024-10.parquet",
+				"folderPath": "tripdata",
+				"fileSystem": "bronze"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
