@@ -5,12 +5,20 @@
 			"referenceName": "Http_NYCTLC_Website",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"p_filename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "yellow_tripdata_2024-10.parquet"
+				"relativeUrl": {
+					"value": "@dataset().p_filename",
+					"type": "Expression"
+				}
 			},
 			"compressionCodec": "snappy"
 		},
