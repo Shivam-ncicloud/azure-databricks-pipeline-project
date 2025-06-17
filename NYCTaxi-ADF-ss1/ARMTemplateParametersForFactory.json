@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "NYCTaxi-ADF-ss1"
+		},
+		"ADLS_NYCTaxiData_accountKey": {
+			"value": ""
+		},
+		"ADLS_NYCTaxiData_properties_typeProperties_url": {
+			"value": "https://nyctaxidatalake0.dfs.core.windows.net/"
+		},
+		"Http_NYCTLC_Website_properties_typeProperties_url": {
+			"value": "https://d37ci6vzurychx.cloudfront.net/trip-data/"
+		}
+	}
+}

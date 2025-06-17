@@ -1,0 +1,63 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "NYCTaxi-ADF-ss1"
+		},
+		"ADLS_NYCTaxiData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLS_NYCTaxiData'"
+		},
+		"ADLS_NYCTaxiData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://nyctaxidatalake0.dfs.core.windows.net/"
+		},
+		"Http_NYCTLC_Website_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://d37ci6vzurychx.cloudfront.net/trip-data/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "NYCTaxi-ADF-ss1_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_NYCTaxiData_accountKey": {
+						"value": "[parameters('ADLS_NYCTaxiData_accountKey')]"
+					},
+					"ADLS_NYCTaxiData_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_NYCTaxiData_properties_typeProperties_url')]"
+					},
+					"Http_NYCTLC_Website_properties_typeProperties_url": {
+						"value": "[parameters('Http_NYCTLC_Website_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
